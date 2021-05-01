@@ -51,6 +51,7 @@ install-utils:
                 make install ; \
                 cd ..;\
                 apt-get --allow-unauthenticated install -y vim ; \
+                apt-get --allow-unauthenticated install iproute;\
                 apt-get --allow-unauthenticated install -y git ; \
                 apt-get --allow-unauthenticated install -y collectl ; \
                 apt-get --allow-unauthenticated install -y tshark ; \
