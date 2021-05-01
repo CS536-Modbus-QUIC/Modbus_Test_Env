@@ -49,19 +49,22 @@ $ cd pymodbus/examples/common
 $ python3 async_asyncio_client.py
 ```
 
-## Generate PCAP files for QUIC 
-## Gnerate PCAP files for QUIC
+## Generate PCAP files 
+Gnerate PCAP files for QUIC
+```sh
 # new terminal
 $ make host-h1
 $ tshark -i h1-eth0 -w Modbus_Quic_traffic/0ms0%/trial<number>.pcap host 10.0.0.1
 
 # Open two new terminal and run the Modbus over QUIC
 # Once you see the client closed the connection. Stop the tshark and a pcap file will be added to Modbus_Quic_traffic/0ms0%/ folder 
-
-## Gnerate PCAP files for TLS 
+```
+Gnerate PCAP files for TLS 
+```sh
 # new terminal
 $ make host-h1
 $ tshark -i h1-eth0 -w TCP_TLS_traffic/0ms0%/trial<number>.pcap host 10.0.0.1
 
 # Open two new terminal and run the Pymodbus TCP + TLS 
 # Once you see the client closed the connection. Stop the tshark and a pcap file will be added to TCP_TLS_traffic/0ms0%/ folder 
+```
