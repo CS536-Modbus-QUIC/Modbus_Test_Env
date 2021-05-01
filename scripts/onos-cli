@@ -1,0 +1,8 @@
+#!/bin/bash
+
+ONOS_CLI_IMG=davidlor/python-ssh
+
+docker run -it --rm \
+  --name onos-cli \
+  --network host \
+  $ONOS_CLI_IMG ssh -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no" -p 8101 onos@localhost

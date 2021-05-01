@@ -1,0 +1,12 @@
+#!/bin/bash
+
+UTILS_DIR=$(cd "$(dirname "$0")"; pwd)/utils
+OCI=127.0.0.1
+ONOS_NETCFG_IMG=davidlor/python-ssh
+
+docker run -it --rm \
+  --name onos-netcfg \
+  --network host \
+  -v "$UTILS_DIR"/onos:/utils/onos \
+  -v "$PWD":/workdir -w /workdir \
+  $ONOS_NETCFG_IMG /utils/onos/onos-netcfg $OCI "$@"

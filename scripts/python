@@ -1,0 +1,9 @@
+#!/bin/bash
+
+PYTHON_IMG=jupyter/datascience-notebook
+
+docker run -it --rm \
+  --name python \
+  --network host \
+  -v "$PWD":/workdir -w /workdir \
+  $PYTHON_IMG python "$@"

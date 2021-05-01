@@ -1,0 +1,5 @@
+#!/bin/bash
+
+P4C_IMG=opennetworking/p4c:stable
+
+docker run --rm -v "$PWD":/workdir -w /workdir ${P4C_IMG} "$@"

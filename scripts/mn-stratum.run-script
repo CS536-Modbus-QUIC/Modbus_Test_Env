@@ -1,0 +1,11 @@
+#!/bin/bash
+
+MN_STRATUM_IMG=opennetworking/mn-stratum:20.12
+
+docker run --privileged --rm -it \
+  --name mn-stratum \
+  --network host \
+  -v /tmp/mn-stratum:/tmp \
+  -v "$PWD":/workdir -w /workdir \
+  --entrypoint "" \
+  $MN_STRATUM_IMG python "$@"
