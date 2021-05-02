@@ -60,11 +60,8 @@ def quicDelay ():
         median.set(color='#b2df8a', linewidth=2)
 
     ## change the style of fliers and their fill
-    for flier in bp['fliers']:
-        flier.set(marker='o', color='#e7298a', alpha=0.5)
-
-    # Save the figure
-    fig.savefig('fig1.png', bbox_inches='tight')
+    for color, flier in zip(colors, bp['fliers']):
+        flier.set(marker='.', color=color, alpha=0.1)
 
     ## Custom x-axis labels
     ax.set_xticklabels(['Sample1', 'Sample2', 'Sample3', 'Sample4'])
@@ -114,8 +111,6 @@ def TLSDelay():
     for flier in bp['fliers']:
         flier.set(marker='o', color='#e7298a', alpha=0.5)
 
-    # Save the figure
-    fig.savefig('fig1.png', bbox_inches='tight')
 
     ## Custom x-axis labels
     ax.set_xticklabels(['Sample1', 'Sample2', 'Sample3', 'Sample4'])
@@ -164,8 +159,6 @@ def quicLoss():
     for flier in bp['fliers']:
         flier.set(marker='o', color='#e7298a', alpha=0.5)
 
-    # Save the figure
-    fig.savefig('QUIC_loss.png', bbox_inches='tight')
 
     ## Custom x-axis labels
     ax.set_xticklabels(['Sample1', 'Sample2', 'Sample3', 'Sample4'])
@@ -174,7 +167,7 @@ def quicLoss():
     ax.get_xaxis().tick_bottom()
     ax.get_yaxis().tick_left()
 
-    fig.savefig('quic_delay.png', bbox_inches='tight')
+    fig.savefig('QUIC_loss.png', bbox_inches='tight')
 
 def TLSLoss():
     data_to_plot = processdata("../TCP_TLS_traffic/0ms0%/Latency.txt", "../TCP_TLS_traffic/0ms10%/Latency.txt",
@@ -214,8 +207,6 @@ def TLSLoss():
     for flier in bp['fliers']:
         flier.set(marker='o', color='#e7298a', alpha=0.5)
 
-    # Save the figure
-    fig.savefig('fig1.png', bbox_inches='tight')
 
     ## Custom x-axis labels
     ax.set_xticklabels(['Sample1', 'Sample2', 'Sample3', 'Sample4'])
@@ -229,6 +220,6 @@ def TLSLoss():
 
 if __name__ == "__main__":
     quicDelay();
-    TLSDelay();
-    quicLoss();
-    TLSLoss();
+    #TLSDelay();
+    #quicLoss();
+    #TLSLoss();
