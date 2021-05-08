@@ -1,12 +1,11 @@
-
 # Implementation and design of Modbus QUIC protocol for ICS network
 
 **Para 1** ... describing the problem\
-Modicon Communication Bus (Modbus) is an application layer protocol for client-server communication between a supervisory server and a controlled device in the industrial control system (ICS) network. The popularity of Modbus is mainly due to its real-time performance, and the trade-off is that Modbus has no security features. Notwithstanding that the ICS devices are usually constrained in terms of memory, CPU, and power capacities, adding security layers such as TLS imposes high overhead.  Our goal is to build a new Modbus variant that provides source authentication and session encryption, with much less overhead than the current Modbus/TCP TLS solution.\
+Modicon Communication Bus (Modbus) is an application layer protocol for client-server communication between a supervisory server and a controlled device in the industrial control system (ICS) network. The popularity of Modbus is mainly due to its real-time performance, and the trade-off is that Modbus has no security features. Notwithstanding that the ICS devices are usually constrained in memory, CPU, and power capacities, adding security layers such as TLS imposes high overhead.  Our goal is to build a new Modbus variant that provides source authentication and session encryption, with much less overhead than the current Modbus/TCP TLS solution.\
 **Para 2** ... what you did?\
-We design and implement a full-blown Modbus protocol running over QUIC. QUIC transport eliminates the head-of-line blocking issues inherent with TCP and provides lower-latency connection establishment than TCP/TLS.  Our implementation is based on [pymodbus](https://pymodbus.readthedocs.io/en/latest/) and [aioquic](https://github.com/aiortc/aioquic). We evaluated the connection latency for QUIC and TCP TLS on a MININET virtual network, where we can easily change the network conditions (delay, percentages of packet loss). \ 
+We design and implement a full-blown Modbus protocol running over QUIC. QUIC transport eliminates the head-of-line blocking issues inherent with TCP and provides lower-latency connection establishment than TCP/TLS.  Our implementation is based on [pymodbus](https://pymodbus.readthedocs.io/en/latest/) and [aioquic](https://github.com/aiortc/aioquic). We evaluated the connection latency for QUIC and TCP TLS on a MININET virtual network, where we can easily change the network conditions (delay, percentages of packet loss).\
 **Para 3** ... discuss the most promising plot or result\
-We observer that QUIC achieves a lower connection latency than TCP/TLS across all values of added delays.  The experiments on packet loss show that  QUIC connections are much less sensitivet o loss than TCP/TLS connections.\
+We observe that QUIC achieves a lower connection latency than TCP/TLS across all values of added delays.  The experiments on packet loss show that  QUIC connections are much less sensitive o loss than TCP/TLS connections.
 
 
 > Link to GitHub repo:  
